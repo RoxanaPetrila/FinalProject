@@ -16,14 +16,14 @@ public class LogInTest extends SharedData{
 
     @Test
     public void test_method(){
-        DashboardPage dashboardPage = new DashboardPage(driver);
+        DashboardPage dashboardPage = new DashboardPage(getDriver());
         dashboardPage.clickMyAccountButton();
 
         String usernameValue = "testUsername897";
         String passwordValue = "Pword123456!@";
         String expectedMessage= "Hello ";
 
-        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         myAccountPage.fillLogInForm(usernameValue, passwordValue);
         myAccountPage.clickRememberMe();
         myAccountPage.clickLoginButton();

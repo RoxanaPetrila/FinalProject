@@ -18,34 +18,34 @@ public class ProductPage extends BasePage {
     //pagina in care vezi elementele de pe produs
     //titlulProdusului
     @FindBy(xpath = "//h1[@class='product_title entry-title']")
-    public WebElement productTitle;
+    private WebElement productTitle;
     //color picker
     @FindBy(id="pa_color")
-    public WebElement colorField;
+    private WebElement colorField;
     @FindBy(xpath = "//select[@id='pa_color']/option[@class='attached enabled']")
-    public WebElement colorValue;
+    private WebElement colorValue;
     //size Picker
     @FindBy(id="pa_size")
-    public WebElement sizeField;
+    private WebElement sizeField;
 
     @FindBy(xpath = "//select[@id='pa_size']/option[@class='attached enabled']")
-    public List<WebElement> sizeValue;
+    private List<WebElement> sizeValue;
 
     //quantity picker
     @FindBy(xpath = "//button[@class='qty-increase']")
-    public WebElement quantityPicker;
+    private WebElement quantityPicker;
 
     //add to cart button
 
     @FindBy(xpath = "//button[@type='submit'][@class='single_add_to_cart_button button alt']")
-    public WebElement addToCartButton;
+    private WebElement addToCartButton;
 
     //mesajul de adaugat corect
     @FindBy(xpath = "//div[@class='wc-block-components-notice-banner is-success']")
-    public WebElement successMessage;
+    private WebElement successMessage;
 
     @FindBy(xpath = "//a[@class='button wc-forward']")
-    public WebElement viewCartButton;
+    private WebElement viewCartButton;
 
     public void addProductToCart(){
         interactColorField();

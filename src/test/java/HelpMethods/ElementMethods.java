@@ -22,13 +22,20 @@ public class ElementMethods {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy("+x+" ,"+y+")", "");
     }
-    public void waitVisibleElement(WebElement element){
+    private void waitVisibleElement(WebElement element){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
     public void fillElement(WebElement element, String value){
         waitVisibleElement(element);
         element.sendKeys(value);
+    }
+
+    public void fillElement(WebElement element, String value, Keys keyboardPress){
+        waitVisibleElement(element);
+        element.sendKeys(value);
+        element.sendKeys(keyboardPress);
+
     }
 
     public void clickElement(WebElement element){
@@ -40,13 +47,6 @@ public class ElementMethods {
         elements.get(index).click();
     }
 
-
-    public void fillElement(WebElement element, String value, Keys keyboardPress){
-        waitVisibleElement(element);
-        element.sendKeys(value);
-        element.sendKeys(keyboardPress);
-
-    }
 
     public void validateElementMessage(WebElement element, String value){
         waitVisibleElement(element);

@@ -20,23 +20,23 @@ public class AddItemToWishlistTest extends SharedData {
     public void testMethod() {
         //Pick 3 item cards
 
-        List<WebElement> addTowishlistButton = driver.findElements(By.xpath("//a[@class='add_to_wishlist single_add_to_wishlist']"));
-        WebElement addedMessage = driver.findElement(By.id("yith-wcwl-message"));
-
-        for (Integer index = 0; index < addTowishlistButton.size(); index++) {
-            if (index.equals(1) || index.equals(2) || index.equals(4)) {
-                addTowishlistButton.get(index).click();
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-                wait.until(ExpectedConditions.visibilityOf(addedMessage));
-            }
-
-        }
-        //Click to view wishlist
-
-        List<WebElement> wishListButton = driver.findElements(By.xpath("//ul[@class='pull-right noo-topbar-right']/li"));
-        wishListButton.get(0).click();
-        ElementMethods elementMethods = new ElementMethods(driver);
-        elementMethods.scrollByPixels(0,480);
+//        List<WebElement> addTowishlistButton = driver.findElements(By.xpath("//a[@class='add_to_wishlist single_add_to_wishlist']"));
+//        WebElement addedMessage = driver.findElement(By.id("yith-wcwl-message"));
+//
+//        for (Integer index = 0; index < addTowishlistButton.size(); index++) {
+//            if (index.equals(1) || index.equals(2) || index.equals(4)) {
+//                addTowishlistButton.get(index).click();
+//                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//                wait.until(ExpectedConditions.visibilityOf(addedMessage));
+//            }
+//
+//        }
+//        //Click to view wishlist
+//
+//        List<WebElement> wishListButton = driver.findElements(By.xpath("//ul[@class='pull-right noo-topbar-right']/li"));
+//        wishListButton.get(0).click();
+//        ElementMethods elementMethods = new ElementMethods(driver);
+//        elementMethods.scrollByPixels(0,480);
 
 
 

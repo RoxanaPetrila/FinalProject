@@ -20,12 +20,12 @@ public class AddItemToCartTest extends SharedData {
     @Test
     public void test_method(){
 
-        DashboardPage dashboardPage = new DashboardPage(driver);
+        DashboardPage dashboardPage = new DashboardPage(getDriver());
         dashboardPage.clickProduct(2);
 
        String expectedMessage="added to your cart.";
 
-        ProductPage productPage = new ProductPage(driver);
+        ProductPage productPage = new ProductPage(getDriver());
         productPage.addProductToCart();
         productPage.validateOkMessage();
         productPage.validateAddedToCart(expectedMessage);

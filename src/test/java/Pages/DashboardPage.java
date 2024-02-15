@@ -22,13 +22,13 @@ public class DashboardPage extends BasePage  {
 
     //MyAccount button
     @FindBy(xpath = "//a[text()='My Account']")
-    public WebElement myAccountButton;
+    private WebElement myAccountButton;
 
     //Products cards
     @FindBy(xpath= "//div[contains(@class,'noo-shortcode-product-wrap')]/div[contains(@class,'noo-sh-product-grid woocommerce')]" +
             "/div[contains(@class,'noo-sh-product-html columns_3 no_masonry three row is-flex')]" +
             "//div[contains(@class, 'noo-product-item noo-product-sm-4 not_featured')]")
-    public List<WebElement> itemCard;
+    private List<WebElement> itemCard;
 
     //Checkout button
     //Products cards

@@ -14,15 +14,15 @@ public class MyAccountPage extends BasePage{
     }
     //elemente de Log in
     @FindBy(id="username")
-    public WebElement usernameField;
+    private WebElement usernameField;
     @FindBy(id="password")
-    public WebElement passwordField;
+    private WebElement passwordField;
     @FindBy(id="rememberme")
-    public WebElement rememberCheckbox;
+    private WebElement rememberCheckbox;
     @FindBy(xpath = "//button[@name='login']")
-    public WebElement loginButton;
+    private WebElement loginButton;
     @FindBy(xpath = "//div[@class='woocommerce-MyAccount-content']")
-    public WebElement loginMessage;
+    private WebElement loginMessage;
 
 
     // elemente de register

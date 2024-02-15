@@ -1,5 +1,6 @@
 package Pages;
 
+import ObjectData.ErrorProcessingOrderObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -17,62 +18,60 @@ public class CheckoutPage extends BasePage {
     }
 
     @FindBy(id="billing_first_name")
-    public WebElement firstNameField;
+    private WebElement firstNameField;
     @FindBy(id="billing_last_name")
-    public WebElement lastNameField;
+    private WebElement lastNameField;
     @FindBy(id="select2-billing_country-container")
-    public WebElement countryField;
+    private WebElement countryField;
     @FindBy(css = ".select2-search__field")
-    public WebElement countryInputField;
+    private WebElement countryInputField;
     @FindBy(id="billing_address_1")
-    public WebElement addressField;
+    private WebElement addressField;
     @FindBy(id="billing_address_2")
-    public WebElement addressField2;
+    private WebElement addressField2;
     @FindBy(id="billing_city")
-    public WebElement townField;
+    private WebElement townField;
     @FindBy(id="select2-billing_state-container")
-    public WebElement stateField;
+    private WebElement stateField;
     @FindBy(css = ".select2-search__field")
-    public WebElement stateInputField;
+    private WebElement stateInputField;
     @FindBy(id="billing_postcode")
-    public WebElement postalCodeField;
+    private WebElement postalCodeField;
     @FindBy(id="billing_phone")
-    public WebElement phoneField;
+    private WebElement phoneField;
     @FindBy(id="billing_email")
-    public WebElement emailField;
+    private WebElement emailField;
     @FindBy(id="createaccount") //asa e scris in site, nu modifica
-    public WebElement createAccountCheckbox;
+    private WebElement createAccountCheckbox;
     @FindBy(xpath = "//div[@class='create-account']/p/span/input[@name='account_username']")
-    public WebElement usernameField;
+    private WebElement usernameField;
     @FindBy(id="account_password")
-    public WebElement passwordField;
+    private WebElement passwordField;
     @FindBy(css=".validate-required .checkbox ")
-    public WebElement agreeTermsCheckbox;
+    private WebElement agreeTermsCheckbox;
     @FindBy(id="place_order")
-    public WebElement placeOrderButton;
+    private WebElement placeOrderButton;
     @FindBy(css=".woocommerce-error")
-    public WebElement orderStatusMessage;
+    private WebElement orderStatusMessage;
 
-    public void fillCheckoutForm(String firstNameValue, String lastNameValue, String countryValue, String addressValue,
-                            String addressValue2, String townValue, String stateValue, String postalCodeValue, String phoneValue,
-                                 String emailValue){
-        fillFirstName(firstNameValue);
-        fillLastName(lastNameValue);
+    public void fillCheckoutForm(ErrorProcessingOrderObject errorProcessingOrderObject){
+        fillFirstName(errorProcessingOrderObject.getFirstNameValue());
+        fillLastName(errorProcessingOrderObject.getLastNameValue());
         selectCountryField();
-        selectCountry(countryValue);
-        fillAddress1(addressValue);
-        fillAddress2(addressValue2);
+        selectCountry(errorProcessingOrderObject.getCountryValue());
+        fillAddress1(errorProcessingOrderObject.getAddressValue());
+        fillAddress2(errorProcessingOrderObject.getAddressValue2());
         selectStateField();
-        selectState(stateValue);
-        fillTown(townValue);
-        fillPostalCode(postalCodeValue);
-        fillPhone(phoneValue);
-        fillEmail(emailValue);
+        selectState(errorProcessingOrderObject.getStateValue());
+        fillTown(errorProcessingOrderObject.getTownValue());
+        fillPostalCode(errorProcessingOrderObject.getPostalCodeValue());
+        fillPhone(errorProcessingOrderObject.getPhoneValue());
+        fillEmail(errorProcessingOrderObject.getEmailValue() + System.currentTimeMillis() + "@test.ro");
     }
-    public void createNewAccount(String usernameValue, String passwordValue){
+    public void createNewAccount(ErrorProcessingOrderObject errorProcessingOrderObject){
         interactCreateAccount();
-        fillUsername(usernameValue);
-        fillPassword(passwordValue);
+        fillUsername(errorProcessingOrderObject.getUsernameValue() +System.currentTimeMillis());
+        fillPassword(errorProcessingOrderObject.getPasswordValue());
     }
 
 

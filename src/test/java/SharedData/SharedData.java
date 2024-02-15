@@ -10,9 +10,9 @@ import java.time.Duration;
 
 public class SharedData {
 
-    public WebDriver driver;
+    private WebDriver driver;
 
-    @BeforeMethod
+
     //precondition before all tests
     public void setup() {
                 //visit site
@@ -25,11 +25,14 @@ public class SharedData {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,450)", "");
     }
-    @AfterMethod
+
     //conditions after each test has been run
     public void clear(){
         driver.quit();
     }
 
+    public WebDriver getDriver() {
+        return driver;
+    }
 }
 

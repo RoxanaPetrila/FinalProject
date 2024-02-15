@@ -15,11 +15,11 @@ public class CartPage extends BasePage {
     }
     //numele produsului in cos
     @FindBy(xpath = "//td[@class='product-name']")
-    public WebElement productInCart;
+    private WebElement productInCart;
 
     //proceed to checkout button
     @FindBy(xpath = "//a[@class='checkout-button button alt wc-forward']")
-    public WebElement checkoutButton;
+    private WebElement checkoutButton;
 
 
     public void getProductName(){
