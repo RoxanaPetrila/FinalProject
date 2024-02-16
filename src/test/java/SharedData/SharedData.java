@@ -1,6 +1,7 @@
 package SharedData;
 
 import Logger.LoggerUtility;
+import SharedData.Browser.BrowserFactory;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,13 +17,7 @@ public class SharedData {
 
     //precondition before all tests
     public void setup() {
-                //visit site
-        driver = new ChromeDriver();
-        driver.get("https://shop.demoqa.com/");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        LoggerUtility.info("The browser was opened successfully");
-
+        driver= new BrowserFactory().getBrowserDriver();
         //perform a scroll on site (needed to view all info)
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,450)", "");

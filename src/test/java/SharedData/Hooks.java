@@ -15,11 +15,11 @@ public class Hooks extends SharedData{
 
     @BeforeMethod
     public void prepareEnvironment(){
-        setup();
         testName=this.getClass().getSimpleName();
         PropertyUtility propertyUtility = new PropertyUtility(testName);
         testData=propertyUtility.getAllData();
         LoggerUtility.startTestCase(testName);
+        setup();
 
     }
     @AfterMethod

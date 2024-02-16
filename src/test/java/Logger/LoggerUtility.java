@@ -50,7 +50,6 @@ public class LoggerUtility {
 
             for (String fileName : fileNames) {
                 if(fileName.contains(".log")) {
-                    System.out.println("Reading from " + fileName);
 
                     File f = new File(dir, fileName);
 

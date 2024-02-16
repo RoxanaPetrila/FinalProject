@@ -24,10 +24,6 @@ public class LogInTest extends Hooks{
         DashboardPage dashboardPage = new DashboardPage(getDriver());
         dashboardPage.clickMyAccountButton();
 
-//        String usernameValue = "testUsername897";
-//        String passwordValue = "Pword123456!@";
-//        String expectedMessage= "Hello ";
-
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         myAccountPage.fillLogInForm(logInObject);
         myAccountPage.clickRememberMe();
@@ -36,30 +32,7 @@ public class LogInTest extends Hooks{
 
 
 
-//
-//        WebElement myAccountButton = driver.findElement(By.xpath("//a[text()='My Account']"));
-//        myAccountButton.click();
-//
-//        WebElement usernameField = driver.findElement(By.id("username"));
-//        String usernameValue = "testUsername897";
-//        usernameField.sendKeys(usernameValue);
-//
-//        WebElement passwordField =driver.findElement(By.id("password"));
-//        String passwordValue = "Pword123456!@";
-//        passwordField.sendKeys(passwordValue);
-//
-//        WebElement rememberCheckbox = driver.findElement(By.id("rememberme"));
-//        rememberCheckbox.click();
-//
-//        WebElement loginButton = driver.findElement(By.xpath("//button[@name='login']"));
-//        loginButton.click();
-//
-//        WebElement loginMessage = driver.findElement(By.xpath("//div[@class='woocommerce-MyAccount-content']"));
-//        String actualLoginMessage = loginMessage.getText();
-//        String expectedLoginMessage = "Hello " + usernameValue;
-//
-//
-//        Assert.assertTrue(actualLoginMessage.contains(expectedLoginMessage));
+
 
 
 
