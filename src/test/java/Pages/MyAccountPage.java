@@ -1,5 +1,7 @@
 package Pages;
 
+import Logger.LoggerUtility;
+import ObjectData.LogInObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,27 +31,33 @@ public class MyAccountPage extends BasePage{
 
     //Metode de login
 
-    public void fillLogInForm(String usernameValue, String passwordValue){
-        fillInUsername(usernameValue);
-        fillInPassword(passwordValue);
+    public void fillLogInForm(LogInObject logInObject){
+        fillInUsername(logInObject.getUsernameValue());
+        fillInPassword(logInObject.getPasswordValue());
     }
     public void fillInUsername(String usernameValue){
         elementMethods.fillElement(usernameField, usernameValue);
+        LoggerUtility.info("The user fills in the username value");
 
     }
     public void fillInPassword(String passwordValue){
         elementMethods.fillElement(passwordField, passwordValue);
+        LoggerUtility.info("The user fills in the password value");
     }
     public void clickRememberMe(){
         elementMethods.clickElement(rememberCheckbox);
+        LoggerUtility.info("The user clicks on Remember me button");
     }
     public void clickLoginButton(){
         elementMethods.clickElement(loginButton);
+        LoggerUtility.info("The user clicks on LogIn button");
+
     }
 
     public void validateLoginMessage(String expectedLoginMessage, String usernameValue){
         elementMethods.validateElementContainsMessage(loginMessage, expectedLoginMessage);
         elementMethods.validateElementContainsMessage(loginMessage, usernameValue);
+        LoggerUtility.info("Validating that log in message contains Hello + the value of the username");
 
     }
 

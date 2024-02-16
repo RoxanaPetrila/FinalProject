@@ -1,6 +1,7 @@
 package Tests;
 
 import HelpMethods.ElementMethods;
+import ObjectData.AddItemToCartObject;
 import Pages.CartPage;
 import Pages.DashboardPage;
 import Pages.ProductPage;
@@ -12,23 +13,26 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import SharedData.Hooks;
 
 import java.util.List;
 
-public class AddItemToCartTest extends SharedData {
+public class AddItemToCartTest extends Hooks {
 
     @Test
     public void test_method(){
 
+        AddItemToCartObject addItemToCartObject = new AddItemToCartObject(testData);
+
         DashboardPage dashboardPage = new DashboardPage(getDriver());
         dashboardPage.clickProduct(2);
 
-       String expectedMessage="added to your cart.";
+//       String expectedMessage="added to your cart.";
 
         ProductPage productPage = new ProductPage(getDriver());
         productPage.addProductToCart();
         productPage.validateOkMessage();
-        productPage.validateAddedToCart(expectedMessage);
+        productPage.validateAddedToCart(addItemToCartObject);
 //        productPage.getProductTitle();
 //        productPage.interactViewCartButton();
         //????????????????????============================???????????

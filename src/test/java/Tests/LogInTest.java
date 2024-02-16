@@ -1,6 +1,7 @@
 package Tests;
 
 import HelpMethods.ElementMethods;
+import ObjectData.LogInObject;
 import Pages.DashboardPage;
 import Pages.MyAccountPage;
 import SharedData.SharedData;
@@ -11,23 +12,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import SharedData.Hooks;
 
-public class LogInTest extends SharedData{
+public class LogInTest extends Hooks{
 
     @Test
     public void test_method(){
+
+        LogInObject logInObject = new LogInObject(testData);
+
         DashboardPage dashboardPage = new DashboardPage(getDriver());
         dashboardPage.clickMyAccountButton();
 
-        String usernameValue = "testUsername897";
-        String passwordValue = "Pword123456!@";
-        String expectedMessage= "Hello ";
+//        String usernameValue = "testUsername897";
+//        String passwordValue = "Pword123456!@";
+//        String expectedMessage= "Hello ";
 
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
-        myAccountPage.fillLogInForm(usernameValue, passwordValue);
+        myAccountPage.fillLogInForm(logInObject);
         myAccountPage.clickRememberMe();
         myAccountPage.clickLoginButton();
-        myAccountPage.validateLoginMessage(expectedMessage, usernameValue);
+        myAccountPage.validateLoginMessage(logInObject.getExpectedMessage(), logInObject.getUsernameValue());
 
 
 

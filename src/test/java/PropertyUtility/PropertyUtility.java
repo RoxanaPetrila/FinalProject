@@ -19,7 +19,7 @@ public class PropertyUtility {
         properties = new Properties();
         FileInputStream fileInputStream = null;
         try {
-            fileInputStream = new FileInputStream("src/test/resources/TestData/ErrorProcessingOrderTestData.properties");
+            fileInputStream = new FileInputStream("src/test/resources/TestData/"+fileName+"Data.properties");
             properties.load(fileInputStream);
         } catch (IOException ignored) {
         }

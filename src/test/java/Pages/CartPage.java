@@ -1,5 +1,6 @@
 package Pages;
 
+import Logger.LoggerUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,11 +29,13 @@ public class CartPage extends BasePage {
     public void validateNameOfProduct(String productName){
        String nameInCart = productInCart.getText();
         Assert.assertTrue(nameInCart.contains(productName));
+
     }
 
     public void proceedToCheckout(){
         elementMethods.scrollByPixels(0,580);
         elementMethods.clickElement(checkoutButton);
+        LoggerUtility.info("User clicks on Proceed to checkout button");
     }
 
 }

@@ -1,5 +1,7 @@
 package Pages;
 
+import Logger.LoggerUtility;
+import ObjectData.AddItemToCartObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -62,33 +64,42 @@ public class ProductPage extends BasePage {
     }
     public void interactColorField(){
         elementMethods.clickElement(colorField);
+        LoggerUtility.info("User clicks on color field");
     }
     public void chooseColor(){
         elementMethods.clickElement(colorValue);
+        LoggerUtility.info("User chooses color value");
     }
     public void interactSizeField(){
         elementMethods.clickElement(sizeField);
+        LoggerUtility.info("User clicks on size field");
     }
     public void chooseSize(Integer index){
         elementMethods.clickElementInList(sizeValue,index);
+        LoggerUtility.info("User chooses size value");
     }
     public void interactQuantityPicker(){
         elementMethods.clickElement(quantityPicker);
+        LoggerUtility.info("User chooses quantity value");
     }
     public void addItemToCart(){
         elementMethods.clickElement(addToCartButton);
+        LoggerUtility.info("User clicks on add item to cart button");
     }
 
-    public void validateAddedToCart(String expectedMessage){
-        elementMethods.validateElementContainsMessage(successMessage, expectedMessage);
-
+    public void validateAddedToCart(AddItemToCartObject addItemToCartObject){
+        elementMethods.validateElementContainsMessage(successMessage, addItemToCartObject.getExpectedMessage());
+        //successMessage contains productTitle? - validate this here!
+        LoggerUtility.info("Validating that displayed message contains desired message");
     }
     public void validateOkMessage(){
         elementMethods.validateElementVisible(successMessage);
+        LoggerUtility.info("Validating that success message is visible");
     }
 
     public void interactViewCartButton(){
         elementMethods.clickElement(viewCartButton);
+        LoggerUtility.info("User clicks on view cart button");
     }
 
 

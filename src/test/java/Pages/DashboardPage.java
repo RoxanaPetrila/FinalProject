@@ -1,5 +1,6 @@
 package Pages;
 
+import Logger.LoggerUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,10 +42,12 @@ public class DashboardPage extends BasePage  {
 
     public void clickMyAccountButton(){
         elementMethods.clickElement(myAccountButton);
+        LoggerUtility.info("The user clicks on MyAccount button");
     }
 
     public void clickProduct(Integer index){
         elementMethods.clickElementInList(itemCard, index);
+        LoggerUtility.info("The user clicks on a product card");
     }
 
 
