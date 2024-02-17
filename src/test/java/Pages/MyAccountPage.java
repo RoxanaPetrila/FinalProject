@@ -37,12 +37,12 @@ public class MyAccountPage extends BasePage{
     }
     public void fillInUsername(String usernameValue){
         elementMethods.fillElement(usernameField, usernameValue);
-        LoggerUtility.info("The user fills in the username value");
+        LoggerUtility.info("The user fills in the username value: " + usernameValue );
 
     }
     public void fillInPassword(String passwordValue){
         elementMethods.fillElement(passwordField, passwordValue);
-        LoggerUtility.info("The user fills in the password value");
+        LoggerUtility.info("The user fills in the password value: " + passwordValue);
     }
     public void clickRememberMe(){
         elementMethods.clickElement(rememberCheckbox);
@@ -57,7 +57,7 @@ public class MyAccountPage extends BasePage{
     public void validateLoginMessage(String expectedLoginMessage, String usernameValue){
         elementMethods.validateElementContainsMessage(loginMessage, expectedLoginMessage);
         elementMethods.validateElementContainsMessage(loginMessage, usernameValue);
-        LoggerUtility.info("Validating that log in message contains Hello + the value of the username");
+        LoggerUtility.info("Validating that log in message contains Hello + the value of the username: " + usernameValue);
 
     }
 
