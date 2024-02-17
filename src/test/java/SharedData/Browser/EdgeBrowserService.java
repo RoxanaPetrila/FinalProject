@@ -19,7 +19,6 @@ public class EdgeBrowserService extends BaseBrowserService implements BrowserSer
         EdgeOptions edgeOptions = (EdgeOptions) prepareBrowserOptions(cicd);
         driver = new EdgeDriver(edgeOptions);
         driver.get(getBrowserOptions().get("url"));
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         LoggerUtility.info("The browser was opened successfully");
 
