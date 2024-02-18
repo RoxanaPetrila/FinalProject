@@ -1,6 +1,9 @@
 package Tests;
 
 import HelpMethods.ElementMethods;
+import ObjectData.AddItemToWishlistObject;
+import Pages.DashboardPage;
+import Pages.MyWishlistPage;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -13,14 +16,43 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
+import SharedData.Hooks;
 
-public class AddItemToWishlistTest extends SharedData {
+public class AddItemToWishlistTest extends Hooks {
 
     @Test
     public void testMethod() {
-        //Pick 3 item cards
 
-//        List<WebElement> addTowishlistButton = driver.findElements(By.xpath("//a[@class='add_to_wishlist single_add_to_wishlist']"));
+        AddItemToWishlistObject addItemToWishlistObject = new AddItemToWishlistObject(testData);
+
+        //visit MyWishlist to see it is empty
+        DashboardPage dashboardPage = new DashboardPage(getDriver());
+        dashboardPage.clickMyWishlistButton();
+
+        //validate empty message is visible and correct
+
+        MyWishlistPage myWishlistPage = new MyWishlistPage(getDriver());
+        myWishlistPage.validateEmptyBodyMessage(addItemToWishlistObject);
+        myWishlistPage.returnToDashboard();
+
+        //Pick 3 item cards from dashboard
+
+        dashboardPage.clickAddToWishlistButton(1);
+        dashboardPage.clickAddToWishlistButton(2);
+        dashboardPage.clickAddToWishlistButton(4);
+        dashboardPage.clickMyWishlistButton();
+
+        //validate table body is not empty
+        myWishlistPage.tableBodyVisible();
+        myWishlistPage.removeIconVisible();
+
+
+
+
+
+
+
+//        List<WebElement> addToWishlistButton = driver.findElements(By.xpath("//a[@class='add_to_wishlist single_add_to_wishlist']"));
 //        WebElement addedMessage = driver.findElement(By.id("yith-wcwl-message"));
 //
 //        for (Integer index = 0; index < addTowishlistButton.size(); index++) {
@@ -31,7 +63,7 @@ public class AddItemToWishlistTest extends SharedData {
 //            }
 //
 //        }
-//        //Click to view wishlist
+        //Click to view wishlist
 //
 //        List<WebElement> wishListButton = driver.findElements(By.xpath("//ul[@class='pull-right noo-topbar-right']/li"));
 //        wishListButton.get(0).click();

@@ -155,9 +155,4 @@ public class CheckoutPage extends BasePage {
         LoggerUtility.info("Validating invalid order status message");
     }
 
-
-
-
-
-
 }

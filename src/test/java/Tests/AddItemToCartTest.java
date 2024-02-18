@@ -25,7 +25,7 @@ public class AddItemToCartTest extends Hooks {
         AddItemToCartObject addItemToCartObject = new AddItemToCartObject(testData);
 
         DashboardPage dashboardPage = new DashboardPage(getDriver());
-        dashboardPage.clickProduct(2);
+        dashboardPage.clickProduct(1);
 
 //       String expectedMessage="added to your cart.";
 
