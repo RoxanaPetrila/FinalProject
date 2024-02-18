@@ -11,9 +11,9 @@ on:
         required: true
         default: 'chrome'
       suite:
-        description: 'Choose which of the following tests suites you want to run: Smoke-Suite, Regression-Suite'
+        description: 'Choose which of the following tests suites you want to run: SmokeSuite, RegressionSuite'
         required: true
-        default: 'Smoke-Suite'
+        default: 'SmokeSuite'
 
 
 jobs:
