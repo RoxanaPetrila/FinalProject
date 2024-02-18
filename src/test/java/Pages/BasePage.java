@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
-    public WebDriver driver;
-    public ElementMethods elementMethods;
+    protected WebDriver driver;
+    protected ElementMethods elementMethods;
 
 
     public BasePage(WebDriver driver){
