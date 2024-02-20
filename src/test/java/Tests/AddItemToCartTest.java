@@ -20,19 +20,20 @@ import java.util.List;
 public class AddItemToCartTest extends Hooks {
 
     @Test
-    public void test_method(){
+    public void testMethod(){
 
         AddItemToCartObject addItemToCartObject = new AddItemToCartObject(testData);
 
         DashboardPage dashboardPage = new DashboardPage(getDriver());
-        dashboardPage.clickProduct(1);
-
-//       String expectedMessage="added to your cart.";
+        dashboardPage.clickProduct(4);
 
         ProductPage productPage = new ProductPage(getDriver());
         productPage.addProductToCart();
-        productPage.validateOkMessage();
-        productPage.validateAddedToCart(addItemToCartObject);
+        productPage.validateSuccessMessage(addItemToCartObject);
+
+
+
+
 //        productPage.getProductTitle();
 //        productPage.interactViewCartButton();
         //????????????????????============================???????????

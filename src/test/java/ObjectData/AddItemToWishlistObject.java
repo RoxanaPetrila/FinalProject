@@ -6,6 +6,20 @@ public class AddItemToWishlistObject {
 
     private String textValue;
 
+
+    public AddItemToWishlistObject(HashMap<String, String> testData) {
+        populateObject(testData);
+
+    }
+
+    private void populateObject(HashMap<String, String> testData) {
+        for (String key : testData.keySet()) {
+            if (key.equals("textValue")) {
+                setTextValue(testData.get(key));
+            }
+        }
+    }
+
     public String getTextValue() {
         return textValue;
     }
@@ -14,18 +28,4 @@ public class AddItemToWishlistObject {
         this.textValue = textValue;
     }
 
-    public AddItemToWishlistObject(HashMap<String, String> testData){
-        populateObject(testData);
-
-    }
-
-    private void populateObject(HashMap<String, String> testData){
-        for (String key: testData.keySet()){
-            switch (key){
-                case "textValue":
-                    setTextValue(testData.get(key));
-                    break;
-            }
-        }
-    }
 }

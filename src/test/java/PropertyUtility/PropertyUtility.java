@@ -11,7 +11,6 @@ public class PropertyUtility {
 
     public PropertyUtility(String fileName) {
         loadDataFile(fileName);
-
     }
 
     //A method to load a properties file

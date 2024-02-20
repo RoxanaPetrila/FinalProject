@@ -78,11 +78,11 @@ public class CheckoutPage extends BasePage {
 
     public void fillFirstName(String firstNameValue){
        elementMethods.fillElement(firstNameField,firstNameValue);
-        LoggerUtility.info("User fills in first name value");
+        LoggerUtility.info("User fills in first name value: " + firstNameValue);
     }
     public void fillLastName(String lastNameValue){
         elementMethods.fillElement(lastNameField, lastNameValue);
-        LoggerUtility.info("User fills in last name value");
+        LoggerUtility.info("User fills in last name value: " + lastNameValue);
     }
     public void selectCountryField(){
         elementMethods.clickElement(countryField);
@@ -90,21 +90,21 @@ public class CheckoutPage extends BasePage {
     }
     public void selectCountry(String countryValue){
         elementMethods.fillElement(countryInputField, countryValue, Keys.ENTER);
-        LoggerUtility.info("User searches for country value and presses ENTER");
+        LoggerUtility.info("User searches for country value: " + countryValue + " and presses ENTER");
     }
     public void fillAddress1(String addressValue){
     elementMethods.fillElement(addressField, addressValue);
-        LoggerUtility.info("User fills in first address field");
+        LoggerUtility.info("User fills in first address field: " + addressValue);
     }
 
     public void fillAddress2(String addressValue2){
     elementMethods.fillElement(addressField2, addressValue2);
-        LoggerUtility.info("User fills in second address field");
+        LoggerUtility.info("User fills in second address field: " + addressValue2);
     }
 
     public void fillTown(String townValue){
     elementMethods.fillElement(townField, townValue);
-        LoggerUtility.info("User fills in town value");
+        LoggerUtility.info("User fills in town value: " + townValue);
     }
     public void selectStateField(){
         elementMethods.clickElement(stateField);
@@ -112,21 +112,21 @@ public class CheckoutPage extends BasePage {
     }
     public void selectState(String stateValue){
         elementMethods.fillElement(stateInputField, stateValue, Keys.ENTER);
-        LoggerUtility.info("User fills in state value and presses ENTER");
+        LoggerUtility.info("User fills in state value: " + stateValue + " and presses ENTER");
     }
 
     public void fillPostalCode(String postalCodeValue){
         elementMethods.fillElement(postalCodeField, postalCodeValue);
-        LoggerUtility.info("User fills in postal code value value");
+        LoggerUtility.info("User fills in postal code value value: " + postalCodeValue);
     }
 
     public void fillPhone(String phoneValue){
         elementMethods.fillElement(phoneField, phoneValue);
-        LoggerUtility.info("User fills in phone value");
+        LoggerUtility.info("User fills in phone value: " + phoneValue);
     }
     public void fillEmail(String emailValue){
         elementMethods.fillElement(emailField, emailValue);
-        LoggerUtility.info("User fills in email value");
+        LoggerUtility.info("User fills in email value: " + emailValue);
     }
     public void interactCreateAccount(){
         elementMethods.clickElement(createAccountCheckbox);
@@ -135,11 +135,11 @@ public class CheckoutPage extends BasePage {
 
     public void fillUsername(String usernameValue){
         elementMethods.fillElement(usernameField, usernameValue);
-        LoggerUtility.info("User fills in username value");
+        LoggerUtility.info("User fills in username value: " + usernameValue);
     }
     public void fillPassword(String passwordValue){
         elementMethods.fillElement(passwordField, passwordValue);
-        LoggerUtility.info("User fills in password value");
+        LoggerUtility.info("User fills in password value: " + passwordValue);
     }
     public void checkAgreeTerms(){
         elementMethods.scrollByPixels(0,-400);
@@ -152,7 +152,6 @@ public class CheckoutPage extends BasePage {
     }
     public void validateMessage(String expectedMessage){
         elementMethods.validateElementContainsMessage(orderStatusMessage,expectedMessage);
-        LoggerUtility.info("Validating invalid order status message");
+        LoggerUtility.info("Validating invalid order status message: " + expectedMessage);
     }
-
 }

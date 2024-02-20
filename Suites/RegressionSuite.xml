@@ -1,14 +1,10 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name = "Parallel Testing Suite">
-    <test name = "Parallel Tests" thread-count="2" parallel = "classes">
+<suite name = "Regression Testing Suite">
+    <test name = "Regression Tests" thread-count="2" parallel = "classes">
 
         <packages>
             <package name="Tests.*"/>
         </packages>
 
-        <!--        <classes>-->
-        <!--            <class name="Tests.LogInTest"></class>-->
-        <!--            <class name="Tests.ErrorProcessingOrderTest"></class>-->
-        <!--        </classes>-->
     </test>
 </suite>

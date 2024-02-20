@@ -26,7 +26,7 @@ public class SharedData {
     //conditions after each test has been run
     public void clear(){
         driver.quit();
-        LoggerUtility.info("The browser was closed successfully");
+        LoggerUtility.info("The browser has been closed successfully");
     }
 
     public WebDriver getDriver() {

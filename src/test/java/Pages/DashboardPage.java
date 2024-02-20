@@ -41,12 +41,7 @@ public class DashboardPage extends BasePage {
             "//div[contains(@class, 'noo-product-item noo-product-sm-4 not_featured')]")
     private List<WebElement> itemCard;
 
-    //Checkout button
-    //Products cards
-
-    //Cart Icon
-
-
+    //Methods used on Dashboard elements
     public void clickMyAccountButton() {
         elementMethods.clickElement(myAccountButton);
         LoggerUtility.info("The user clicks on MyAccount button");
@@ -54,7 +49,7 @@ public class DashboardPage extends BasePage {
 
     public void clickProduct(Integer index) {
         elementMethods.clickElementInList(itemCard, index);
-        LoggerUtility.info("The user clicks on a product card");
+        LoggerUtility.info("The user clicks on a product card at index " + index);
     }
 
     //Add an item to wishlist method

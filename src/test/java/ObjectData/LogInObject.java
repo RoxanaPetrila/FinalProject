@@ -9,11 +9,9 @@ public class LogInObject {
     private String expectedMessage;
 
 
-
     public LogInObject (HashMap<String, String> testData){
         populateObject(testData);
     }
-
 
     private void populateObject(HashMap<String, String> testData) {
         for (String key : testData.keySet()) {

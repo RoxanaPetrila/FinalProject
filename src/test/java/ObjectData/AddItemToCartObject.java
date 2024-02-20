@@ -12,14 +12,11 @@ public class AddItemToCartObject {
 
     private void populateObject(HashMap<String, String> testData) {
         for (String key : testData.keySet()) {
-            switch (key) {
-                case "expectedMessage":
-                    setExpectedMessage(testData.get(key));
-                    break;
+            if (key.equals("expectedMessage")) {
+                setExpectedMessage(testData.get(key));
             }
         }
     }
-
 
     public String getExpectedMessage() {
         return expectedMessage;

@@ -10,15 +10,16 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.util.List;
+import java.util.Locale;
 
 public class ProductPage extends BasePage {
-    public WebDriver driver;
 
     public ProductPage(WebDriver driver) {
         super(driver);
     }
-    //pagina in care vezi elementele de pe produs
-    //titlulProdusului
+
+    //Elements found on product page -  after user opens product card
+
     @FindBy(xpath = "//h1[@class='product_title entry-title']")
     private WebElement productTitle;
     //color picker
@@ -42,7 +43,6 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//button[@type='submit'][@class='single_add_to_cart_button button alt']")
     private WebElement addToCartButton;
 
-    //mesajul de adaugat corect
     @FindBy(xpath = "//div[@class='wc-block-components-notice-banner is-success']")
     private WebElement successMessage;
 
@@ -58,10 +58,11 @@ public class ProductPage extends BasePage {
         addItemToCart();
 
     }
-
-    public void getProductTitle(){
-        productTitle.getText();
-    }
+   public void validateSuccessMessage(AddItemToCartObject addItemToCartObject){
+        validateOkMessage();
+        validateNameInCart();
+        validateAddedToCart(addItemToCartObject);
+   }
     public void interactColorField(){
         elementMethods.clickElement(colorField);
         LoggerUtility.info("User clicks on color field");
@@ -89,13 +90,20 @@ public class ProductPage extends BasePage {
 
     public void validateAddedToCart(AddItemToCartObject addItemToCartObject){
         elementMethods.validateElementContainsMessage(successMessage, addItemToCartObject.getExpectedMessage());
-        //successMessage contains productTitle? - validate this here!
-        LoggerUtility.info("Validating that displayed message contains desired message");
+        LoggerUtility.info("Validating that displayed message contains: " + addItemToCartObject.getExpectedMessage());
+
     }
     public void validateOkMessage(){
         elementMethods.validateElementVisible(successMessage);
         LoggerUtility.info("Validating that success message is visible");
     }
+    public void validateNameInCart(){
+        String productName = productTitle.getText().toLowerCase();
+        String actualMessage = successMessage.getText().toLowerCase();
+        Assert.assertTrue(actualMessage.contains(productName));
+        LoggerUtility.info("Validating that item name in message is the same as product title: "+ productName);
+    }
+
 
     public void interactViewCartButton(){
         elementMethods.clickElement(viewCartButton);

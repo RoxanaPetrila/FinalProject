@@ -2,6 +2,7 @@ package Pages;
 
 import Logger.LoggerUtility;
 import ObjectData.LogInObject;
+import ObjectData.RegisterInvalidUsernameObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,12 +10,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class MyAccountPage extends BasePage{
-    public WebDriver driver;
 
     public MyAccountPage(WebDriver driver) {
         super(driver);
     }
-    //elemente de Log in
+
+    //page elements
     @FindBy(id="username")
     private WebElement usernameField;
     @FindBy(id="password")
@@ -26,10 +27,19 @@ public class MyAccountPage extends BasePage{
     @FindBy(xpath = "//div[@class='woocommerce-MyAccount-content']")
     private WebElement loginMessage;
 
+    @FindBy(id="reg_username")
+    private WebElement registerUsername;
+    @FindBy(id="reg_email")
+    private WebElement registerEmail;
+    @FindBy(id="reg_password")
+    private WebElement registerPassword;
+    @FindBy(xpath = "//button[@class='woocommerce-Button woocommerce-button button woocommerce-form-register__submit']")
+    private WebElement registerButton;
+    @FindBy(xpath = "//div[@class='wc-block-components-notice-banner__content']")
+    private WebElement registerMessage;
 
-    // elemente de register
 
-    //Metode de login
+    //LogIn methods
 
     public void fillLogInForm(LogInObject logInObject){
         fillInUsername(logInObject.getUsernameValue());
@@ -51,15 +61,46 @@ public class MyAccountPage extends BasePage{
     public void clickLoginButton(){
         elementMethods.clickElement(loginButton);
         LoggerUtility.info("The user clicks on LogIn button");
-
     }
 
     public void validateLoginMessage(String expectedLoginMessage, String usernameValue){
         elementMethods.validateElementContainsMessage(loginMessage, expectedLoginMessage);
         elementMethods.validateElementContainsMessage(loginMessage, usernameValue);
         LoggerUtility.info("Validating that log in message contains Hello + the value of the username: " + usernameValue);
-
     }
+
+    //Register methods
+
+    public void fillRegisterForm(RegisterInvalidUsernameObject registerInvalidUsernameObject){
+        fillRegUsername(registerInvalidUsernameObject.getRegUsernameValue());
+        fillRegEmail(registerInvalidUsernameObject.getRegEmailValue());
+        fillRegPassword(registerInvalidUsernameObject.getRegPasswordValue());
+    }
+
+    public void fillRegUsername(String regUsernameValue){
+        elementMethods.fillElement(registerUsername, regUsernameValue);
+        LoggerUtility.info("The user fills in the username value: " + regUsernameValue );
+    }
+    public void fillRegPassword(String regPasswordValue){
+        elementMethods.fillElement(registerPassword, regPasswordValue);
+        LoggerUtility.info("The user fills in the password value: " + regPasswordValue );
+    }
+    public void fillRegEmail(String regEmailValue){
+        elementMethods.fillElement(registerEmail, regEmailValue);
+        LoggerUtility.info("The user fills in the email address value: " + regEmailValue );
+    }
+    public void clickRegister(){
+        elementMethods.clickElement(registerButton);
+        LoggerUtility.info("The user clicks on Register button");
+    }
+    public void validateInvalidUsernameMessage(String invalidUsernameError){
+        elementMethods.validateElementVisible(registerMessage);
+        LoggerUtility.info("Register message is visible");
+        elementMethods.validateElementMessage(registerMessage, invalidUsernameError);
+        LoggerUtility.info("Error message is expected message: " + invalidUsernameError);
+    }
+
+
 
 
 

@@ -22,17 +22,16 @@ public class Hooks extends SharedData{
         setup();
 
     }
-////    @AfterMethod
-////    public void clearEnvironment(ITestResult result){
-////        if(result.getStatus() == ITestResult.FAILURE){
-////            LoggerUtility.error(result.getThrowable().getMessage());
-////        }
-////        else {
-////            clear();
-////            LoggerUtility.endTestCase(testName);
-////        }
-//
-//    }
+    @AfterMethod
+    public void clearEnvironment(ITestResult result){
+        if(result.getStatus() == ITestResult.FAILURE){
+            LoggerUtility.error(result.getThrowable().getMessage());
+        }
+        else {
+            clear();
+            LoggerUtility.endTestCase(testName);
+        }
+    }
     @AfterSuite
     public void finishedArtifacts(){
         LoggerUtility.mergeLogsIntoOne();

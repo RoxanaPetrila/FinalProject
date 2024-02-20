@@ -47,7 +47,6 @@ public class ElementMethods {
         elements.get(index).click();
     }
 
-
     public void validateElementMessage(WebElement element, String value){
         waitVisibleElement(element);
         String actualMessage = element.getText();

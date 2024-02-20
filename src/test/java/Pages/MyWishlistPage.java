@@ -13,11 +13,8 @@ public class MyWishlistPage extends BasePage {
     public MyWishlistPage(WebDriver driver) {
         super(driver);
     }
-    //elementele din pagina de wishlist
-    //tabelul in wishlist cu numele /numarul de linii al tabelului cu produsele
 
-
-    //gasesti capul de tabel
+    //Find table head
     @FindBy(css = ".nobr")
     private List<WebElement> tableHeadElements;
 
@@ -57,18 +54,5 @@ public class MyWishlistPage extends BasePage {
         LoggerUtility.info("Validating that icon to remove added item is visible in the table.");
 
     }
-
-
-
-
-
-
-
-
-
-
-    //in test vei adauga produse
-
-    //de data asta elementele/intrarile din tabel trebuie sa fie vizibile
 
 }
