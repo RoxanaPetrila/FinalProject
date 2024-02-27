@@ -27,10 +27,6 @@ public class BrowserFactory {
                 EdgeBrowserService edgeBrowserService = new EdgeBrowserService();
                 edgeBrowserService.openBrowser(cicd);
                 return edgeBrowserService.getDriver();
-            case "firefox":
-                FirefoxBrowserService firefoxBrowserService = new FirefoxBrowserService();
-                firefoxBrowserService.openBrowser(cicd);
-                return firefoxBrowserService.getDriver();
         }
         return null;
     }

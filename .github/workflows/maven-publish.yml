@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       browser:
-        description: 'Choose one of the following browsers: chrome, edge, firefox'
+        description: 'Choose one of the following browsers: chrome, edge'
         required: true
         default: 'chrome'
       suite:
